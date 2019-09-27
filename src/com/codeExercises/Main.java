@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        System.out.println(sum(2,3));
+//        System.out.println(sum(3,3));
 //        System.out.println(multiplesFiveEight(10));
 //        System.out.println(factorial(5));
 //        List<Integer> alist = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Main {
 
     }
 
-    
+
 
     public static Integer findArray(int[] arrayList) {
 
