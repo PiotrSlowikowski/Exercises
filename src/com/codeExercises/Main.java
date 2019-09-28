@@ -33,16 +33,68 @@ public class Main {
 //        System.out.println(getElement(alist, 3));
 //        System.out.println(fizzBuzz(2));
 //        System.out.println(isPrime(21));
+//        System.out.println(fibonacci(4));
+//        System.out.println(isPalindrome("abcdefedcba"));
+        System.out.println(evenFibonacci(50));
 
     }
-    
 
-    public static boolean isPrime (Integer n) {
+    public static Integer evenFibonacci(Integer n) {
+
+        int sum = 0;
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(0);
+        list.add(1);
+
+        for (int i = 2; i <= n; i++) {
+
+            list.add(i, list.get((i-2))+(list.get(i-1)));
+            if (list.get(i)%2==0 && list.get(i)<n) {
+                sum += list.get(i);
+            }
+        }
+        return sum;
+    }
+
+    public static boolean isPalindrome(String word) {
+
+        int counter = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+
+            if (word.charAt(i) == word.charAt(word.length() - i - 1)) {
+                counter++;
+            }
+
+        }
+        if (counter == word.length()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static Integer fibonacci(Integer n) {
+
+        Integer value = 0;
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(0, 0);
+        list.add(1, 1);
+
+        for (int i = 2; i <= n; i++) {
+
+            value = list.get(i - 2) + list.get(i - 1);
+            list.add(i, value);
+        }
+        return list.get(n);
+    }
+
+    public static boolean isPrime(Integer n) {
 
         int checker = 0;
 
-        for (int i=1; i<=n; i++) {
-            if (n%i==0) {
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) {
                 checker++;
             }
         }
@@ -52,13 +104,13 @@ public class Main {
         return false;
     }
 
-    public static String fizzBuzz (Integer i) {
+    public static String fizzBuzz(Integer i) {
 
-        if (i%3==0 && i%5==0) {
+        if (i % 3 == 0 && i % 5 == 0) {
             return "FizzBuzz";
-        } else if (i%3==0) {
+        } else if (i % 3 == 0) {
             return "Fizz";
-        } else if (i%5==0) {
+        } else if (i % 5 == 0) {
             return "Buzz";
         }
         return i.toString();
