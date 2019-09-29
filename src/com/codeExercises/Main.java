@@ -35,7 +35,52 @@ public class Main {
 //        System.out.println(isPrime(21));
 //        System.out.println(fibonacci(4));
 //        System.out.println(isPalindrome("abcdefedcba"));
-        System.out.println(evenFibonacci(50));
+//        System.out.println(evenFibonacci(1000));
+//        System.out.println(greatestCommonDivisor(5,15));
+//        System.out.println(cesarCipher("v"));
+        
+
+    }
+
+    public static String cesarCipher (String word) {
+
+        StringBuilder sb = new StringBuilder();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+        for (int i=0; i<word.length(); i++) {
+            for (int j=0; j<alphabet.length(); j++) {
+                if (word.charAt(i) == alphabet.charAt(j) && j<21) {
+                    sb.append(alphabet.charAt(j+5));
+                } else if (word.charAt(i) == alphabet.charAt(j) && j>=21) {
+                    sb.append(alphabet.charAt(j-21));
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public static Integer greatestCommonDivisor(Integer p, Integer q) {
+
+        int divisor = 0;
+
+        if (p>q) {
+            for (int i=1; i<=p; i++) {
+                if (p%i==0 && q%i==0) {
+                    divisor = i;
+                }
+            }
+
+        } else if (q>=p) {
+            for (int i=1; i<=q; i++) {
+                if (q%i==0 && p%i==0) {
+
+                    divisor = i;
+
+                }
+            }
+
+        }
+        return divisor;
 
     }
 
@@ -49,8 +94,11 @@ public class Main {
         for (int i = 2; i <= n; i++) {
 
             list.add(i, list.get((i-2))+(list.get(i-1)));
-            if (list.get(i)%2==0 && list.get(i)<n) {
+            if ((list.get(i)%2==0) && (list.get(i)<n)) {
                 sum += list.get(i);
+            } else if (list.get(i)>n) {
+                list.remove(i);
+                return sum;
             }
         }
         return sum;
