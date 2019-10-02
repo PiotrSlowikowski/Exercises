@@ -13,8 +13,55 @@ public class Main {
 //        int[] numbers = {2,1,1,1,1,1};
 //        System.out.println(strayNumber(numbers));
 //        System.out.println(populationGrowth(1000, 2, 50, 3200) + " years will be needed");
+//        System.out.println(ownedCatAndDog(15,15));
+        System.out.println(findSum(10));
+
+    }
+
+    public static int findSum(int n) {
+        //Sum of all the multiples of 3 or 5
+
+        int counter = 0;
+
+        for (int i=1; i<=n; i++) {
+            if (i%3==0) {
+                counter += i;
+            } else if (i%5 == 0) {
+                counter += i;
+            }
+
+        }
+        return counter;
+    }
+
+    public static int[] ownedCatAndDog (final int catYears, final int dogYears) {
+
+        int ownedCat = 0;
+        int ownedDog = 0;
+
+        for (int i=1; i<=catYears; i++) {
+            if (i==1) {
+                ownedCat += 15;
+            } else if (i == 2) {
+                ownedCat += 9;
+            } else if (i > 2) {
+                ownedCat += 4;
+            }
+        }
+
+        for (int j=1; j<=dogYears; j++) {
+
+            if (j == 1) {
+                ownedDog += 15;
+            } else if (j==2) {
+                ownedDog += 9;
+            } else if (j>2) {
+                ownedDog += 5;
+            }
+        }
 
 
+        return new int[]{ownedCat,ownedDog};
     }
 
     public static int populationGrowth (int p0, double percent, int aug, int p) {
