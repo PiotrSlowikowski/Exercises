@@ -10,11 +10,39 @@ public class Main {
 
 //        System.out.println(morseDecoder(".... . -.--  -.. ..- -.. ."));;
 
-//        int[] numbers = {2,1,1,1,1,1};
+        int[] numbers = {2,1,1,1,1,1};
 //        System.out.println(strayNumber(numbers));
 //        System.out.println(populationGrowth(1000, 2, 50, 3200) + " years will be needed");
 //        System.out.println(ownedCatAndDog(15,15));
-        System.out.println(findSum(10));
+//        System.out.println(findSum(10));
+//        System.out.println(thirdAngleOfTriangl(34, 84));
+//        System.out.println(sumArray(numbers));
+        
+
+    }
+
+    public static int sumArray (int[] array) {
+
+        int sum = 0;
+
+        for (int i=0; i<array.length; i++) {
+            if (array[i] >= 0) {
+                sum += array[i];
+            }
+
+        }
+        return sum;
+    }
+
+    public static int strintToNum(String str) {
+
+        int a = Integer.parseInt(str);
+        return a;
+    }
+
+    public static int thirdAngleOfTriangl(int a, int b) {
+
+        return 180 - (a+b);
 
     }
 
@@ -23,10 +51,10 @@ public class Main {
 
         int counter = 0;
 
-        for (int i=1; i<=n; i++) {
-            if (i%3==0) {
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0) {
                 counter += i;
-            } else if (i%5 == 0) {
+            } else if (i % 5 == 0) {
                 counter += i;
             }
 
@@ -34,13 +62,13 @@ public class Main {
         return counter;
     }
 
-    public static int[] ownedCatAndDog (final int catYears, final int dogYears) {
+    public static int[] ownedCatAndDog(final int catYears, final int dogYears) {
 
         int ownedCat = 0;
         int ownedDog = 0;
 
-        for (int i=1; i<=catYears; i++) {
-            if (i==1) {
+        for (int i = 1; i <= catYears; i++) {
+            if (i == 1) {
                 ownedCat += 15;
             } else if (i == 2) {
                 ownedCat += 9;
@@ -49,28 +77,28 @@ public class Main {
             }
         }
 
-        for (int j=1; j<=dogYears; j++) {
+        for (int j = 1; j <= dogYears; j++) {
 
             if (j == 1) {
                 ownedDog += 15;
-            } else if (j==2) {
+            } else if (j == 2) {
                 ownedDog += 9;
-            } else if (j>2) {
+            } else if (j > 2) {
                 ownedDog += 5;
             }
         }
 
 
-        return new int[]{ownedCat,ownedDog};
+        return new int[]{ownedCat, ownedDog};
     }
 
-    public static int populationGrowth (int p0, double percent, int aug, int p) {
+    public static int populationGrowth(int p0, double percent, int aug, int p) {
 
         int n = 0;
         Double pDouble = Double.valueOf(p0);
 
         while (p >= pDouble) {
-            pDouble = pDouble + pDouble*percent*0.01 + aug;
+            pDouble = pDouble + pDouble * percent * 0.01 + aug;
             n++;
 
             if (pDouble >= p) {
@@ -81,11 +109,11 @@ public class Main {
         return 0;
     }
 
-    public static int strayNumber (int[] numbers) {
+    public static int strayNumber(int[] numbers) {
 
         int counter = 0;
 
-        for (int i=0; i<numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             if ((numbers[0] != numbers[i]) || (numbers[1] != numbers[i])) {
                 return numbers[i];
             }
