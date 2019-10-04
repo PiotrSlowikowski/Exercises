@@ -10,22 +10,149 @@ public class Main {
 
 //        System.out.println(morseDecoder(".... . -.--  -.. ..- -.. ."));;
 
-        int[] numbers = {2,1,1,1,1,1};
+//        int[] numbers = {2,1,1,1,1,1};
 //        System.out.println(strayNumber(numbers));
 //        System.out.println(populationGrowth(1000, 2, 50, 3200) + " years will be needed");
 //        System.out.println(ownedCatAndDog(15,15));
 //        System.out.println(findSum(10));
 //        System.out.println(thirdAngleOfTriangl(34, 84));
 //        System.out.println(sumArray(numbers));
+//        String[] array = {"2:2", "5:3", "2:1", "4:1", "1:1"};
+//        System.out.println("Points: "+points(array))
+//        System.out.println(evenOrOdd(5));
+//        System.out.println(opposite(83));
+//        System.out.println(repeatStr(12, "LIFE : - )"));
+//        System.out.println(removeFirstLast("mefedron"));
+//        int[] numbers = {2, 83, -1, -39, 101};
+//        System.out.println(findSmallestInt(numbers));
+//        System.out.println(makeNegative(5));
+//        System.out.println(noSpace("kot ma kota  dasdasd"));
+
+//        Boolean[] sheeps = {true, true, true, false,
+//                true, true, true, true,
+//                true, false, true, false,
+//                true, false, false, true,
+//                true, true, true, true,
+//                false, false, true, true};
+//        System.out.println(countSheeps(sheeps));
         
+
 
     }
 
-    public static int sumArray (int[] array) {
+    public static int countSheeps(Boolean[] arrayOfSheeps) {
+
+        int counter = 0;
+
+        for (int i = 0; i < arrayOfSheeps.length; i++) {
+
+            if (arrayOfSheeps[i].equals(true)) {
+                counter += 1;
+            }
+        }
+        return counter;
+    }
+
+    public static String noSpace(String x) {
+        String empty = "";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+//        for (int i=0; i<x.length(); i++) {
+//            for (int j=0; j<alphabet.length(); j++) {
+//                if (x.charAt(i) == alphabet.charAt(j)) {
+//                    empty +=x.charAt(i);
+//                }
+//
+//            }
+//
+//        }
+//        return empty;
+        return x.replaceAll("\\s", "");
+    }
+
+    public static int makeNegative(final int x) {
+
+
+        if (x > 0) {
+            return x - 2 * x;
+        }
+        return x;
+    }
+
+    public static int findSmallestInt(int[] args) {
+
+        int minimum = args[0];
+
+        for (int i = 0; i < args.length; i++) {
+            if (args[i] < minimum) {
+
+                minimum = args[i];
+
+            }
+        }
+        return minimum;
+    }
+
+    public static String removeFirstLast(String str) {
+
+        return str.substring(1, str.length() - 1);
+
+    }
+
+    public static String repeatStr(final int repeat, final String str) {
+
+        String toBeFilled = "";
+
+        for (int i = 0; i < repeat; i++) {
+            toBeFilled += str + "...";
+        }
+        return toBeFilled;
+    }
+
+    public static int opposite(int number) {
+
+        if (number < 0) {
+            return Math.abs(number);
+        } else if (number > 0) {
+            return number - 2 * number;
+        }
+        return 0;
+    }
+
+    public static String evenOrOdd(int number) {
+
+        if (number % 2 == 0) {
+            return "The number is even.";
+        } else if (number % 2 != 0) {
+            return "The number is odd.";
+        }
+        return "The end";
+    }
+
+    public static int points(String[] games) {
+
+        int points = 0;
+
+        for (int i = 0; i < games.length; i++) {
+            String[] scores = games[i].split(":");
+            int a = Integer.parseInt(scores[0]);
+            int b = Integer.parseInt(scores[1]);
+
+            if (a > b) {
+                points += 3;
+            } else if (a == b) {
+                points += 1;
+            }
+
+        }
+        return points;
+    }
+
+    public static int sumArray(int[] array) {
 
         int sum = 0;
 
-        for (int i=0; i<array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] >= 0) {
                 sum += array[i];
             }
@@ -42,7 +169,7 @@ public class Main {
 
     public static int thirdAngleOfTriangl(int a, int b) {
 
-        return 180 - (a+b);
+        return 180 - (a + b);
 
     }
 
