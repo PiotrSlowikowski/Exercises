@@ -27,7 +27,6 @@ public class Main {
 //        System.out.println(findSmallestInt(numbers));
 //        System.out.println(makeNegative(5));
 //        System.out.println(noSpace("kot ma kota  dasdasd"));
-
 //        Boolean[] sheeps = {true, true, true, false,
 //                true, true, true, true,
 //                true, false, true, false,
@@ -35,9 +34,82 @@ public class Main {
 //                true, true, true, true,
 //                false, false, true, true};
 //        System.out.println(countSheeps(sheeps));
-        
+//        System.out.println(basicMath("*",4,2));
+//        System.out.println(boolToWord(true));
+//        int[] out.println(countSumArray(array));
+//        Object[] stringArray = {"hay", true, "hay", null, "moreJunk", "needle", "randomJunk"};
+//        System.out.println(findNeedle(stringArray));
+//        System.out.println(toStringMethod(32));
 
+    }
 
+    public static String toStringMethod(int num) {
+
+        return Integer.toString(num);
+
+    }
+
+    public static String findNeedle(Object[] haystack) {
+
+        for (int i = 0; i < haystack.length; i++) {
+            if (haystack[i] != null) {
+                if (haystack[i].equals("needle")) {
+                    return "Found the needle at position: " + i;
+                }
+            } else {
+                continue;
+            }
+        }
+
+        return "Oww";
+    }
+
+    public static int[] countSumArray(int[] input) {
+
+        int[] emptyArray = {};
+        int counter = 0;
+        int sum = 0;
+
+        if (input != null) {
+            for (int i = 0; i < input.length; i++) {
+                if (input[i] > 0) {
+                    counter++;
+                } else if (input[i] < 0) {
+                    sum += input[i];
+                }
+            }
+            if (counter == 0 & sum == 0) {
+
+                return emptyArray;
+            }
+        } else {
+            return emptyArray;
+        }
+
+        int[] finalArray = {counter, sum};
+        return finalArray;
+    }
+
+    public static String boolToWord(boolean b) {
+
+        if (b == true) {
+            return "Yes";
+        }
+        return "Ya";
+    }
+
+    public static double basicMath(String op, int v1, int v2) {
+
+        if (op.equals("+")) {
+            return v1 + v2;
+        } else if (op.equals("-")) {
+            return v1 - v2;
+        } else if (op.equals("*")) {
+            return v1 * v2;
+        } else if (op.equals("/")) {
+            return v1 / v2;
+        }
+        return v2;
     }
 
     public static int countSheeps(Boolean[] arrayOfSheeps) {
