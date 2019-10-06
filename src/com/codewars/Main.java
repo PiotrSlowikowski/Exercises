@@ -40,6 +40,67 @@ public class Main {
 //        Object[] stringArray = {"hay", true, "hay", null, "moreJunk", "needle", "randomJunk"};
 //        System.out.println(findNeedle(stringArray));
 //        System.out.println(toStringMethod(32));
+//        int[] numbers = {4, 1, 1, 1, 4};
+//        System.out.println(sum(numbers));
+//        System.out.println(abbrevName("Sam Harris"));
+//        map(numbers);
+//        System.out.println(findShort("How could they knew about that"));
+
+
+    }
+
+    public static int findShort(String s) {
+
+        int minimum = s.length();
+        String[] arrayOfStrings = s.split(" ");
+        for (int i=0; i<arrayOfStrings.length; i++) {
+            if (arrayOfStrings[i].length() < minimum) {
+                minimum = arrayOfStrings[i].length();
+            }
+        }
+        return minimum;
+    }
+
+    public static int[] map(int[] arr) {
+
+        int[] values = new int[arr.length];
+
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i=0; i<arr.length; i++) {
+            map.put(i, 2*arr[i]);
+            values[i] = map.get(i);
+        }
+        return values;
+    }
+
+    public static String abbrevName (String name) {
+
+        String[] words = name.split(" ");
+        return words[0].substring(0,1).toUpperCase() + "." + words[1].substring(0,1).toUpperCase();
+    }
+
+
+    public static int sum(int[] numbers) {
+
+        int sum = 0;
+
+        if (numbers == null || numbers.length == 1 || numbers.length == 0) {
+            return 0;
+        } else if (numbers.length > 1) {
+            int max = numbers[0];
+            int min = numbers[0];
+            for (int i = 0; i < numbers.length; i++) {
+                if (max >= numbers[i]) {
+                    max = numbers[i];
+                } else if (min < numbers[i]) {
+                    min = numbers[i];
+                }
+                sum += numbers[i];
+            }
+            return sum - max - min;
+        }
+        return 0;
 
     }
 
