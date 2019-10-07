@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
 //        System.out.println(morseDecoder(".... . -.--  -.. ..- -.. ."));;
 
 //        int[] numbers = {2,1,1,1,1,1};
@@ -45,15 +44,73 @@ public class Main {
 //        System.out.println(abbrevName("Sam Harris"));
 //        map(numbers);
 //        System.out.println(findShort("How could they knew about that"));
+//        stringy(6);
+//        System.out.println(correct("150"));
+//        System.out.println(feast("great blue heron", "garlic nann"));
+//        digitize(4235423);
+
+    }
+
+    public int Liters(double time)  {
+
+        return (int) Math.floor(time*0.5);
+    }
+
+    public static int[] digitize(long n) {
 
 
+        String number = Long.toString(n);
+        int[] reversedArray = new int[number.length()];
+
+        for (int i=number.length()-1; i>=0; i--) {
+            reversedArray[i] = Character.getNumericValue(number.charAt(number.length()-1-i));
+        }
+        return reversedArray;
+    }
+
+    public static boolean feast(String beast, String dish) {
+        if ((beast.charAt(0) == dish.charAt(0))&&(beast.charAt(beast.length()-1) == dish.charAt(dish.length()-1))) {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public static int getAverage(int[] marks){
+
+        int sum = 0;
+
+        for (int i=0; i<marks.length; i++) {
+            sum += marks[i];
+        }
+        return sum/marks.length;
+    }
+
+    public static String correct(String s) {
+
+
+        return s.replace("1","I").replace("5","S").replace("0","O");
+    }
+
+    public static String stringy(int size) {
+
+        String empty = "";
+        for (int i=1; i<=size; i++) {
+            if (i%2==0) {
+                empty += 0;
+            } else if (i%2!=0) {
+                empty += 1;
+            }
+        }
+        return empty;
     }
 
     public static int findShort(String s) {
 
         int minimum = s.length();
         String[] arrayOfStrings = s.split(" ");
-        for (int i=0; i<arrayOfStrings.length; i++) {
+        for (int i = 0; i < arrayOfStrings.length; i++) {
             if (arrayOfStrings[i].length() < minimum) {
                 minimum = arrayOfStrings[i].length();
             }
@@ -67,19 +124,18 @@ public class Main {
 
 
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i=0; i<arr.length; i++) {
-            map.put(i, 2*arr[i]);
+        for (int i = 0; i < arr.length; i++) {
+            map.put(i, 2 * arr[i]);
             values[i] = map.get(i);
         }
         return values;
     }
 
-    public static String abbrevName (String name) {
+    public static String abbrevName(String name) {
 
         String[] words = name.split(" ");
-        return words[0].substring(0,1).toUpperCase() + "." + words[1].substring(0,1).toUpperCase();
+        return words[0].substring(0, 1).toUpperCase() + "." + words[1].substring(0, 1).toUpperCase();
     }
-
 
     public static int sum(int[] numbers) {
 
