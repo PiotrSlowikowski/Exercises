@@ -1,5 +1,6 @@
 package com.codewars;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,12 +49,107 @@ public class Main {
 //        System.out.println(correct("150"));
 //        System.out.println(feast("great blue heron", "garlic nann"));
 //        digitize(4235423);
+//        int[] numbers = {1, -5, 3, 0, -2, 9, 6, -4, -3, 7};
+//        findValues(numbers, 6);
+//        System.out.println(reverseWords("I like eating"));
+//        int[] array = {1,2,3};
+//        grow(array);
+//        System.out.println(bonusTime(10, true));
+//        int[] values = {2, 9, 3, 49, 4, 1 };
+//        squareOrSquareRoot(values);
+    }
+
+    
+
+    public static int[] squareOrSquareRoot(int[] array) {
+
+        int[] values = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i])%1==0) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else if (Math.sqrt(array[i])%1!=0) {
+                array[i] = (int) Math.pow(array[i], 2);
+            }
+        }
+        return values;
+    }
+
+    public static String bonusTime(final int salary, final boolean bonus) {
+
+        if (bonus) {
+            return "\u00A3" + salary * 10;
+        }
+        return "\u00A3" + salary;
+    }
+
+    public static int grow(int[] x) {
+
+        int score = 1;
+        for (int i = 1; i <= x.length; i++) {
+
+            score = score * x[i - 1];
+        }
+
+        return score;
 
     }
 
-    public int Liters(double time)  {
+    public static String reverseWords(String str) {
 
-        return (int) Math.floor(time*0.5);
+        String toFill = "";
+        String[] words = str.split(" ");
+
+        for (int i = 0; i < words.length; i++) {
+            toFill += words[words.length - 1 - i] + " ";
+        }
+        return toFill.trim();
+    }
+
+    // znalezc najmniejsze k najmniejszych elementow k
+    public static int[] findValues(int[] array, int k) {
+
+//        ---------- 1ST way
+//        Arrays.sort(array);
+//        int[] sortedArray = new int [k];
+//        for (int i=0; i<k; i++) {
+//            sortedArray[i] = array[i];
+//        }
+//        return sortedArray;
+
+//        --------- 2ND way
+//        int[] newArray = new int[k];
+//        List<Integer> list = new ArrayList<>();
+//
+//        for (int i=0; i<array.length; i++) {
+//            list.add(i, array[i]);
+//        }
+//        Collections.sort(list);
+//
+//        for (int i=0; i<k; i++) {
+//            newArray[i] = list.get(i);
+//        }
+//
+//        return newArray;
+
+//        ------ Od najwiekszej wartosci
+        int[] sortedArray = new int[k];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i] * (-1);
+        }
+        Arrays.sort(array);
+
+        for (int i = 0; i < k; i++) {
+            sortedArray[i] = array[i] * (-1);
+        }
+
+        return sortedArray;
+    }
+
+    public static int Liters(double time) {
+
+        return (int) Math.floor(time * 0.5);
     }
 
     public static int[] digitize(long n) {
@@ -62,14 +158,14 @@ public class Main {
         String number = Long.toString(n);
         int[] reversedArray = new int[number.length()];
 
-        for (int i=number.length()-1; i>=0; i--) {
-            reversedArray[i] = Character.getNumericValue(number.charAt(number.length()-1-i));
+        for (int i = number.length() - 1; i >= 0; i--) {
+            reversedArray[i] = Character.getNumericValue(number.charAt(number.length() - 1 - i));
         }
         return reversedArray;
     }
 
     public static boolean feast(String beast, String dish) {
-        if ((beast.charAt(0) == dish.charAt(0))&&(beast.charAt(beast.length()-1) == dish.charAt(dish.length()-1))) {
+        if ((beast.charAt(0) == dish.charAt(0)) && (beast.charAt(beast.length() - 1) == dish.charAt(dish.length() - 1))) {
             return true;
         }
 
@@ -77,29 +173,29 @@ public class Main {
 
     }
 
-    public static int getAverage(int[] marks){
+    public static int getAverage(int[] marks) {
 
         int sum = 0;
 
-        for (int i=0; i<marks.length; i++) {
+        for (int i = 0; i < marks.length; i++) {
             sum += marks[i];
         }
-        return sum/marks.length;
+        return sum / marks.length;
     }
 
     public static String correct(String s) {
 
 
-        return s.replace("1","I").replace("5","S").replace("0","O");
+        return s.replace("1", "I").replace("5", "S").replace("0", "O");
     }
 
     public static String stringy(int size) {
 
         String empty = "";
-        for (int i=1; i<=size; i++) {
-            if (i%2==0) {
+        for (int i = 1; i <= size; i++) {
+            if (i % 2 == 0) {
                 empty += 0;
-            } else if (i%2!=0) {
+            } else if (i % 2 != 0) {
                 empty += 1;
             }
         }
