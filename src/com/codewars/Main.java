@@ -1,8 +1,7 @@
 package com.codewars;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
 
@@ -57,18 +56,49 @@ public class Main {
 //        System.out.println(bonusTime(10, true));
 //        int[] values = {2, 9, 3, 49, 4, 1 };
 //        squareOrSquareRoot(values);
+//        sum(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
+//        int[] array = {1,2,3,4,5,6};
+//        System.out.println(divisibleBy(array,2));
+
+
     }
 
-    
+    public static Integer[] divisibleBy(int[] numbers, int divider) {
+
+        int counter = 0;
+        List<Integer> list = new ArrayList<>();
+
+
+        for (int i=0; i<numbers.length; i++) {
+            if (numbers[i]%divider==0) {
+                list.add(numbers[i]);
+            }
+        }
+        System.out.println(list);
+        Integer[] array = list.toArray(new Integer[list.size()]);
+        return array;
+    }
+
+    public static int sum(List<?> mixed) {
+
+        int sum = 0;
+
+        for (Object o : mixed) {
+            sum += Integer.parseInt(o.toString());
+        }
+
+
+        return sum;
+    }
 
     public static int[] squareOrSquareRoot(int[] array) {
 
         int[] values = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            if (Math.sqrt(array[i])%1==0) {
+            if (Math.sqrt(array[i]) % 1 == 0) {
                 array[i] = (int) Math.sqrt(array[i]);
-            } else if (Math.sqrt(array[i])%1!=0) {
+            } else if (Math.sqrt(array[i]) % 1 != 0) {
                 array[i] = (int) Math.pow(array[i], 2);
             }
         }
