@@ -1,6 +1,6 @@
 package com.codewars;
 
-import java.lang.reflect.Array;
+
 import java.util.*;
 
 public class Main {
@@ -59,8 +59,119 @@ public class Main {
 //        sum(Arrays.asList("5", "0", 9, 3, 2, 1, "9", 6, 7));
 //        int[] array = {1,2,3,4,5,6};
 //        System.out.println(divisibleBy(array,2));
+//        System.out.println(noBoringZeros(960000));
+//        int[] numbers = {1, 2, 3, 4, 6, 7, 8};
+//        System.out.println(find(numbers));
+//        System.out.println(tripleTrouble("this", "that", "four"))
+//        int[] array1 = {2, 4, 8};
+//        int[] array2 = {2,4,6};
+//        mergeArrays(array1, array2);
+//        System.out.println(calculateTip(107.65, "great"));
+//        System.out.println(position('z'));
+//        System.out.println(repeatString(24,5));
+    }
+
+    
+
+    public static String repeatString(final Object toRepeat, final int n) {
+
+        String s = "";
+
+        if (toRepeat instanceof String) {
+            for (int i=0; i<n; i++) {
+                s += toRepeat;
+            }
+        } else {
+            return "Not a string";
+        }
 
 
+        return s;
+    }
+
+    public static String position(char alphabet)
+    {
+        String letters = "abcdefghijklmnopqrstuvwxyz";
+
+        for (int i=0; i<letters.length(); i++) {
+        if (alphabet == letters.charAt(i)) {
+            return "Position of alphabet: " + Integer.toString(i+1);
+        }
+    }
+        return "";
+    }
+
+    public static Integer calculateTip(double amount, String rating) {
+
+
+        if (rating.toLowerCase().equals("terrible")) {
+            return 0;
+        } else if (rating.toLowerCase().equals("poor")) {
+            return (int) Math.ceil(amount*0.05);
+        } else if (rating.toLowerCase().equals("good")) {
+            return (int) Math.ceil(amount*0.1);
+        } else if (rating.toLowerCase().equals("great")) {
+            return (int) Math.ceil(amount*0.15);
+        } else if (rating.toLowerCase().equals("excellent")) {
+            return (int) Math.ceil(amount*0.2);
+        }
+
+        return null;
+    }
+
+    public static int[] mergeArrays(int[] first, int[] second) {
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int i=0; i<first.length; i++) {
+            if (first[i] == second[i]) {
+                list.add(first[i]);
+            } else {
+                list.add(first[i]);
+                list.add(second[i]);
+            }
+        }
+        Collections.sort(list);
+
+        int[] finalArray = new int[list.size()];
+
+        for (int i=0; i<list.size(); i++) {
+            finalArray[i] = list.get(i);
+        }
+
+        return finalArray;
+    }
+
+    public static String tripleTrouble(String one, String two, String three) {
+
+        String empty = "";
+
+        for (int i=0; i<one.length(); i++) {
+            empty += one.charAt(i);
+            empty += two.charAt(i);
+            empty += three.charAt(i);
+        }
+        return empty;
+
+    }
+
+    public static Integer find(final int[] array) {
+
+        int number = array[0];
+        for (int i=1; i<array.length; i++) {
+            if (array[i] - array[i-1] != 1) {
+                return array[i];
+            }
+        }
+        return null;
+    }
+
+    public static int noBoringZeros(int n) {
+
+        while (n % 10 == 0) {
+            n = n / 10;
+        }
+        return n;
     }
 
     public static Integer[] divisibleBy(int[] numbers, int divider) {
@@ -69,8 +180,8 @@ public class Main {
         List<Integer> list = new ArrayList<>();
 
 
-        for (int i=0; i<numbers.length; i++) {
-            if (numbers[i]%divider==0) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
                 list.add(numbers[i]);
             }
         }
