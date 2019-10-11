@@ -2,6 +2,7 @@ package com.codewars;
 
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Main {
 
@@ -69,35 +70,122 @@ public class Main {
 //        System.out.println(calculateTip(107.65, "great"));
 //        System.out.println(position('z'));
 //        System.out.println(repeatString(24,5));
+//        System.out.println(isDivisible(3,3));
+//        Map<String, Integer> map = new HashMap<>();
+//        map.put("Java",10);
+//        map.put("Ruby",80);
+//        map.put("Python",99);
+//        System.out.println(myLanguages(map));
+//        convertTime(93784);
+
     }
 
-    
+    public static String convertTime(int timeDiff) {
+        // TODO your code here
+        // 1m = 60s
+        // 1h = 60m = 3600s
+        // 1d = 24h = 1440m = 86 400s
+
+        int days = timeDiff/86400;
+        int hours = timeDiff%86400/3600;
+        int minutes = timeDiff%86400%3600/60;
+        int seconds = timeDiff%86400%3600%60;
+
+        return days+" "+hours+" "+minutes+" "+seconds;
+
+
+    }
+
+
+    public static List<String> myLanguages(final Map<String, Integer> results) {
+
+        List<String> newList = new ArrayList<>();
+
+        Map<String, Integer> sortedMapDesc = sortByComparator(results, true);
+
+
+        for (Entry<String, Integer> entry : sortedMapDesc.entrySet()) {
+            Integer v = entry.getValue();
+            if (v >= 60) {
+                newList.add(entry.getKey());
+            }
+
+        }
+
+        return newList;
+
+//        return null;
+    }
+
+    private static Map<String, Integer> sortByComparator(Map<String, Integer> unsortMap, final boolean order) {
+
+        List<Entry<String, Integer>> list = new LinkedList<Entry<String, Integer>>(unsortMap.entrySet());
+
+        // Sorting the list based on values
+        Collections.sort(list, new Comparator<Entry<String, Integer>>() {
+            public int compare(Entry<String, Integer> o1,
+                               Entry<String, Integer> o2) {
+                if (order) {
+                    return o1.getValue().compareTo(o2.getValue());
+                } else {
+                    return o2.getValue().compareTo(o1.getValue());
+
+                }
+            }
+        });
+
+        // Maintaining insertion order with the help of LinkedList
+        Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        for (Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
+
+    public static boolean isDivisible(int... numbers) {
+
+        boolean outcome = true;
+
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] == 0) {
+                return false;
+            }
+
+            if (numbers[0] % numbers[i] == 0) {
+                outcome = true;
+            } else if (numbers[0] % numbers[i] != 0) {
+                outcome = false;
+            }
+        }
+        return outcome;
+
+    }
 
     public static String repeatString(final Object toRepeat, final int n) {
 
         String s = "";
 
         if (toRepeat instanceof String) {
-            for (int i=0; i<n; i++) {
+            for (int i = 0; i < n; i++) {
                 s += toRepeat;
             }
         } else {
-            return "Not a string";
+            return "Not a string.";
         }
-
-
         return s;
     }
 
-    public static String position(char alphabet)
-    {
+    public static String position(char alphabet) {
         String letters = "abcdefghijklmnopqrstuvwxyz";
 
-        for (int i=0; i<letters.length(); i++) {
-        if (alphabet == letters.charAt(i)) {
-            return "Position of alphabet: " + Integer.toString(i+1);
+        for (int i = 0; i < letters.length(); i++) {
+            if (alphabet == letters.charAt(i)) {
+                return "Position of alphabet: " + Integer.toString(i + 1);
+            }
         }
-    }
         return "";
     }
 
@@ -107,13 +195,13 @@ public class Main {
         if (rating.toLowerCase().equals("terrible")) {
             return 0;
         } else if (rating.toLowerCase().equals("poor")) {
-            return (int) Math.ceil(amount*0.05);
+            return (int) Math.ceil(amount * 0.05);
         } else if (rating.toLowerCase().equals("good")) {
-            return (int) Math.ceil(amount*0.1);
+            return (int) Math.ceil(amount * 0.1);
         } else if (rating.toLowerCase().equals("great")) {
-            return (int) Math.ceil(amount*0.15);
+            return (int) Math.ceil(amount * 0.15);
         } else if (rating.toLowerCase().equals("excellent")) {
-            return (int) Math.ceil(amount*0.2);
+            return (int) Math.ceil(amount * 0.2);
         }
 
         return null;
@@ -123,7 +211,7 @@ public class Main {
 
         List<Integer> list = new ArrayList<>();
 
-        for (int i=0; i<first.length; i++) {
+        for (int i = 0; i < first.length; i++) {
             if (first[i] == second[i]) {
                 list.add(first[i]);
             } else {
@@ -135,7 +223,7 @@ public class Main {
 
         int[] finalArray = new int[list.size()];
 
-        for (int i=0; i<list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             finalArray[i] = list.get(i);
         }
 
@@ -146,7 +234,7 @@ public class Main {
 
         String empty = "";
 
-        for (int i=0; i<one.length(); i++) {
+        for (int i = 0; i < one.length(); i++) {
             empty += one.charAt(i);
             empty += two.charAt(i);
             empty += three.charAt(i);
@@ -158,8 +246,8 @@ public class Main {
     public static Integer find(final int[] array) {
 
         int number = array[0];
-        for (int i=1; i<array.length; i++) {
-            if (array[i] - array[i-1] != 1) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] - array[i - 1] != 1) {
                 return array[i];
             }
         }
