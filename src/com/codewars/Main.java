@@ -77,7 +77,30 @@ public class Main {
 //        map.put("Python",99);
 //        System.out.println(myLanguages(map));
 //        convertTime(93784);
+        System.out.println(splitInParts("supercalifragilisticexpialidocious", 3));
 
+    }
+
+    
+
+    public static String splitInParts(String s, int partLength) {
+
+        String e = "";
+        int counter = 0;
+        int addSpace = 0;
+
+        StringBuilder sb = new StringBuilder();
+        while (counter < s.length()) {
+            e += s.charAt(counter);
+            counter++;
+            addSpace++;
+            if (addSpace == partLength) {
+                e += " ";
+                addSpace = 0;
+            }
+        }
+
+        return e.trim() ;
     }
 
     public static String convertTime(int timeDiff) {
@@ -95,7 +118,6 @@ public class Main {
 
 
     }
-
 
     public static List<String> myLanguages(final Map<String, Integer> results) {
 
