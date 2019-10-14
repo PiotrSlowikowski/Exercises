@@ -77,11 +77,60 @@ public class Main {
 //        map.put("Python",99);
 //        System.out.println(myLanguages(map));
 //        convertTime(93784);
-        System.out.println(splitInParts("supercalifragilisticexpialidocious", 3));
+//        System.out.println(splitInParts("supercalifragilisticexpialidocious", 3));
+//        int[] maxDifference = {24,299,131,14,26,25};
+//        System.out.println(maxGap(maxDifference));
+//        int[] compoundArray1 = {1,2,3,4,5,6};
+//        int[] compoundArray2 = {9,8,7,6};
+//        compoundArray(compoundArray1, compoundArray2);
+
 
     }
 
-    
+    public static int[] compoundArray(int[] array1, int[] array2) {
+
+        int compArrayLength = array1.length + array2.length;
+        int[] compArray = new int[compArrayLength];
+
+        for (int i=0, j=0; i<compArrayLength; j++) {
+            if (j < array1.length) {
+                compArray[i++] = array1[j];
+            }
+            if (j < array2.length) {
+                compArray[i++] = array2[j];
+            }
+
+        }
+        return compArray;
+//        int[] newArray = new int [array1.length+ array2.length];
+//
+////        List<Integer> list = new ArrayList<>();
+//
+//        for (int i=0, j=0; i<newArray.length; j++ ) {
+//            if (j < array1.length) {
+//                newArray[i++] = array1[j];
+//            }
+//            if (j < array2.length) {
+//                newArray[i++] = array2[j];
+//            }
+//        }
+//        return newArray;
+    }
+
+    public static int maxGap(int[] numbers)
+    {
+        Arrays.sort(numbers);
+        int max = numbers[1] - numbers[0];
+
+
+
+        for (int i=2; i<numbers.length; i++) {
+            if ((numbers[i]-numbers[i-1]) > max) {
+                max = numbers[i]-numbers[i-1];
+            }
+        }
+        return max;
+    }
 
     public static String splitInParts(String s, int partLength) {
 
