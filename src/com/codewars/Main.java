@@ -83,8 +83,53 @@ public class Main {
 //        int[] compoundArray1 = {1,2,3,4,5,6};
 //        int[] compoundArray2 = {9,8,7,6};
 //        compoundArray(compoundArray1, compoundArray2);
+//        setAlarm(true, false);
+//        System.out.println(nthEvenElement(100));
 
 
+    }
+
+
+
+    public static int nthEvenElement (int number) {
+
+        int counter = 0;
+
+        for (int i=0; i<1000; i+=2) {
+            counter++;
+            if (number == counter) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public static boolean setAlarm(boolean employed, boolean vacation) {
+        if (employed == true && vacation == false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static String well(String[] x) {
+
+        int counter = 0;
+
+        for (int i = 0; i < x.length; i++) {
+
+            if (x[i].equals("good")) {
+                counter++;
+            }
+        }
+        if (counter == 1 || counter == 2) {
+            return "Publish!";
+        } else if (counter > 2) {
+            return "I smell a series!";
+        } else if (counter == 0) {
+            return "Fail!";
+        }
+        return "";
     }
 
     public static int[] compoundArray(int[] array1, int[] array2) {
@@ -92,7 +137,7 @@ public class Main {
         int compArrayLength = array1.length + array2.length;
         int[] compArray = new int[compArrayLength];
 
-        for (int i=0, j=0; i<compArrayLength; j++) {
+        for (int i = 0, j = 0; i < compArrayLength; j++) {
             if (j < array1.length) {
                 compArray[i++] = array1[j];
             }
@@ -117,16 +162,14 @@ public class Main {
 //        return newArray;
     }
 
-    public static int maxGap(int[] numbers)
-    {
+    public static int maxGap(int[] numbers) {
         Arrays.sort(numbers);
         int max = numbers[1] - numbers[0];
 
 
-
-        for (int i=2; i<numbers.length; i++) {
-            if ((numbers[i]-numbers[i-1]) > max) {
-                max = numbers[i]-numbers[i-1];
+        for (int i = 2; i < numbers.length; i++) {
+            if ((numbers[i] - numbers[i - 1]) > max) {
+                max = numbers[i] - numbers[i - 1];
             }
         }
         return max;
@@ -149,7 +192,7 @@ public class Main {
             }
         }
 
-        return e.trim() ;
+        return e.trim();
     }
 
     public static String convertTime(int timeDiff) {
@@ -158,12 +201,12 @@ public class Main {
         // 1h = 60m = 3600s
         // 1d = 24h = 1440m = 86 400s
 
-        int days = timeDiff/86400;
-        int hours = timeDiff%86400/3600;
-        int minutes = timeDiff%86400%3600/60;
-        int seconds = timeDiff%86400%3600%60;
+        int days = timeDiff / 86400;
+        int hours = timeDiff % 86400 / 3600;
+        int minutes = timeDiff % 86400 % 3600 / 60;
+        int seconds = timeDiff % 86400 % 3600 % 60;
 
-        return days+" "+hours+" "+minutes+" "+seconds;
+        return days + " " + hours + " " + minutes + " " + seconds;
 
 
     }
