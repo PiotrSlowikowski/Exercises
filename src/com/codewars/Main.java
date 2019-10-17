@@ -1,8 +1,6 @@
 package com.codewars;
 
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -127,36 +125,61 @@ public class Main {
 //        int[][] stairs = {sunday,monday,tuesday,wednesday,thursday,friday,saturday};
 //        System.out.println(stairsIn20(stairs));
 //        System.out.println(replace("aeiou"));
+//        humanYearsCatYearsDogYears(10);
+//        System.out.println(twiceAsOld(50,20));
 
     }
 
-    
+    public static int twiceAsOld(int dadYears, int sonYears){
+
+
+        return (dadYears - 2*sonYears);
+    }
+
+    public static int[] humanYearsCatYearsDogYears(final int humanYears) {
+
+        int catYears = 0;
+        int dogYears = 0;
+
+
+        if (humanYears == 1) {
+            catYears = 15;
+            dogYears = 15;
+        } else if (humanYears == 2) {
+            catYears = 15 + 9;
+            dogYears = 15 + 9;
+        } else if (humanYears > 2) {
+            catYears = 24 + ((humanYears - 2) * 4);
+            dogYears = 24 + ((humanYears - 2) * 5);
+        }
+
+
+        return new int[]{humanYears, catYears, dogYears};
+    }
 
     public static String replace(final String s) {
 
-        return s.replaceAll("[aeiouAEIOU ]","!");
+        return s.replaceAll("[aeiouAEIOU ]", "!");
     }
 
-    public static long stairsIn20(int[][] stairsNumber)
-    {
+    public static long stairsIn20(int[][] stairsNumber) {
 
         long stairsTotal = 0;
 
-        for (int i=0; i<7; i++) {
-            for (int j=0; j<52; j++) {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 52; j++) {
                 stairsTotal += stairsNumber[i][j];
             }
         }
-        return stairsTotal*20;
+        return stairsTotal * 20;
     }
 
-    public static int squareSum(int[] n)
-    {
+    public static int squareSum(int[] n) {
         int sum = 0;
 
-        for (int i=0; i<n.length; i++) {
+        for (int i = 0; i < n.length; i++) {
 
-            sum += n[i]*n[i];
+            sum += n[i] * n[i];
 
         }
 
@@ -166,12 +189,12 @@ public class Main {
     public static void fizzBuzz() {
 
 
-        for (int i=1; i<=100; i++) {
-            if (i%3==0 && i%5==0) {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
                 System.out.println(i + " Fizzbuzz");
-            } else if (i%3==0) {
+            } else if (i % 3 == 0) {
                 System.out.println(i + " Fizz");
-            } else if (i%5==0) {
+            } else if (i % 5 == 0) {
                 System.out.println(i + " Buzz");
             } else {
                 System.out.println(i);
@@ -179,11 +202,11 @@ public class Main {
         }
     }
 
-    public static int nthEvenElement (int number) {
+    public static int nthEvenElement(int number) {
 
         int counter = 0;
 
-        for (int i=0; i<1000; i+=2) {
+        for (int i = 0; i < 1000; i += 2) {
             counter++;
             if (number == counter) {
                 return i;
