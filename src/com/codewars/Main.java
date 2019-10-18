@@ -127,7 +127,41 @@ public class Main {
 //        System.out.println(replace("aeiou"));
 //        humanYearsCatYearsDogYears(10);
 //        System.out.println(twiceAsOld(50,20));
+//        String[] words = {"bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"};
+//        twoSort(words);
+//        cockroachSpeed(3.11);
 
+    }
+
+
+    public static int cockroachSpeed(double x){
+
+        double speed = Math.ceil(x*(100000/3600));
+        int transformed = (int) speed;
+
+        return transformed;
+    }
+
+    public static String twoSort(String[] s) {
+
+        String newString = "";
+        List newArray = new ArrayList<String>();
+
+        for (int i=0; i<s.length; i++) {
+            newArray.add(s[i]);
+        }
+        Collections.sort(newArray);
+        String newOne = newArray.get(0).toString();
+
+        for (int i=0; i<newOne.length(); i++) {
+            if (i == newOne.length()-1) {
+                newString += newOne.charAt(i);
+                break;
+            }
+            newString += newOne.charAt(i)+"***";
+        }
+
+        return newString;
     }
 
     public static int twiceAsOld(int dadYears, int sonYears){
