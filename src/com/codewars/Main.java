@@ -130,9 +130,32 @@ public class Main {
 //        String[] words = {"bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"};
 //        twoSort(words);
 //        cockroachSpeed(3.11);
+        System.out.println(toAlternativeString("bPOLSKA2"));
 
     }
 
+    public static String toAlternativeString(String string) {
+
+        String smallLetters = "abcdefghijklmnopqrstuvwxyz";
+        String capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String returnedWord = "";
+
+        for (int i = 0; i < string.length(); i++) {
+            for (int j = 0; j < 26; j++) {
+                if (string.charAt(i) == smallLetters.charAt(j)) {
+                    returnedWord += capitalLetters.charAt(j);
+                    continue;
+                } else if (string.charAt(i) == capitalLetters.charAt(j)) {
+                    returnedWord += smallLetters.charAt(j);
+                    continue;
+                } else if (j == 26-1 && returnedWord.length()==i) {
+                    returnedWord += string.charAt(i);
+                }
+            }
+
+        }
+        return returnedWord;
+    }
 
     public static int cockroachSpeed(double x){
 
