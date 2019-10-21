@@ -130,8 +130,28 @@ public class Main {
 //        String[] words = {"bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"};
 //        twoSort(words);
 //        cockroachSpeed(3.11);
-        System.out.println(toAlternativeString("bPOLSKA2"));
+//        System.out.println(toAlternativeString("bPOLSKA2"));
+        System.out.println(substractSum(91632));
 
+    }
+
+    public static String substractSum(int n) {
+
+        int sum=0;
+
+        if (n>100 && n<10000) {
+            String s = Integer.toString(n);
+
+            int[] array = new int[s.length()];
+            for (int i=0; i<s.length(); i++) {
+                array[i] = Character.getNumericValue(s.charAt(i));
+                sum += Character.getNumericValue(s.charAt(i));
+            }
+        } else {
+            return "Value out of range!";
+        }
+
+        return Integer.toString(sum);
     }
 
     public static String toAlternativeString(String string) {
@@ -148,7 +168,7 @@ public class Main {
                 } else if (string.charAt(i) == capitalLetters.charAt(j)) {
                     returnedWord += smallLetters.charAt(j);
                     continue;
-                } else if (j == 26-1 && returnedWord.length()==i) {
+                } else if (j == 26 - 1 && returnedWord.length() == i) {
                     returnedWord += string.charAt(i);
                 }
             }
@@ -157,9 +177,9 @@ public class Main {
         return returnedWord;
     }
 
-    public static int cockroachSpeed(double x){
+    public static int cockroachSpeed(double x) {
 
-        double speed = Math.ceil(x*(100000/3600));
+        double speed = Math.ceil(x * (100000 / 3600));
         int transformed = (int) speed;
 
         return transformed;
@@ -170,27 +190,27 @@ public class Main {
         String newString = "";
         List newArray = new ArrayList<String>();
 
-        for (int i=0; i<s.length; i++) {
+        for (int i = 0; i < s.length; i++) {
             newArray.add(s[i]);
         }
         Collections.sort(newArray);
         String newOne = newArray.get(0).toString();
 
-        for (int i=0; i<newOne.length(); i++) {
-            if (i == newOne.length()-1) {
+        for (int i = 0; i < newOne.length(); i++) {
+            if (i == newOne.length() - 1) {
                 newString += newOne.charAt(i);
                 break;
             }
-            newString += newOne.charAt(i)+"***";
+            newString += newOne.charAt(i) + "***";
         }
 
         return newString;
     }
 
-    public static int twiceAsOld(int dadYears, int sonYears){
+    public static int twiceAsOld(int dadYears, int sonYears) {
 
 
-        return (dadYears - 2*sonYears);
+        return (dadYears - 2 * sonYears);
     }
 
     public static int[] humanYearsCatYearsDogYears(final int humanYears) {
