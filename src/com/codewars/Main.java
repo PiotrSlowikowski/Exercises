@@ -131,7 +131,7 @@ public class Main {
 //        twoSort(words);
 //        cockroachSpeed(3.11);
 //        System.out.println(toAlternativeString("bPOLSKA2"));
-        System.out.println(substractSum(91632));
+//        System.out.println(substractSum(91632));
 
     }
 
