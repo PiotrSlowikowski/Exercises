@@ -135,6 +135,24 @@ public class Main {
 
     }
 
+    public static boolean solution(String str, String ending) {
+
+        int checker=0;
+
+        if (str.length()>0) {
+            for(int i=0; i<ending.length(); i++) {
+                if (str.charAt(str.length()-1-i) == ending.charAt(ending.length()-i-1)) {
+                    checker++;
+                }
+            }
+        }
+
+        if (checker==ending.length()) {
+            return true;
+        }
+        return false;
+    }
+
     public static String substractSum(int n) {
 
         int sum=0;

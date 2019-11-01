@@ -6,8 +6,21 @@ public class Main{
 
 //        System.out.println(ex7());
 //        System.out.println(ex8());
-        System.out.println(ex12());
+//        System.out.println(ex12());
+//        ex24();
 
+
+    }
+
+    public static void ex25() {
+
+    }
+
+    public static void ex24() {
+
+        String s = "The quick brown fox jumps over the lazy dog";
+        String newS = s.replaceAll("d", "f");
+        System.out.println(newS);
     }
 
     public static boolean ex12() {
