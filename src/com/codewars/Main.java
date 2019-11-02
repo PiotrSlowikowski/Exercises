@@ -132,8 +132,39 @@ public class Main {
 //        cockroachSpeed(3.11);
 //        System.out.println(toAlternativeString("bPOLSKA2"));
 //        System.out.println(substractSum(91632));
+//        squareDigits(9119);
+//        int[] array = {-47, 84, -30, -11, -5, 74, 77};
+//        System.out.println(signChange(array));
 
     }
+
+    public static int signChange(int[] arr) {
+
+        int counter = 0;
+
+        for (int i=0; i<arr.length-1; i++) {
+            if (arr[i]<0 && arr[i+1]>=0) {
+                counter++;
+            } else if (arr[i]>0 && arr[i+1]<=0) {
+                counter++;
+            }
+        }
+
+        return counter;
+    }
+
+    public static void squareDigits(int n) {
+
+        String toFinish = "";
+        String s = Integer.toString(n);
+
+        for (int i=0; i<s.length(); i++) {
+            toFinish += Character.getNumericValue(s.charAt(i))*Character.getNumericValue(s.charAt(i));
+        }
+
+        System.out.println(toFinish);
+    }
+
 
     public static boolean solution(String str, String ending) {
 
