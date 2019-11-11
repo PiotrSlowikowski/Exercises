@@ -135,7 +135,86 @@ public class Main {
 //        squareDigits(9119);
 //        int[] array = {-47, 84, -30, -11, -5, 74, 77};
 //        System.out.println(signChange(array));
+//        System.out.println(findScreenHeight(1024,"4:3"));
+//        System.out.println(conjecture(100));
+//        int[][] marray = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
+//        System.out.println(diagonalSum(marray));
+//       ex1();
+//       ex2();
+//       ex3();
 
+
+
+    }
+
+    
+
+    public static void ex3() {
+
+        double searchedValue = 9.2;
+        double[] nums = {3.0, 7.4, 5.4, 9.2};
+        for (Double elements: nums) {
+            if (elements == searchedValue) {
+                System.out.println("Found: "+ elements);
+            }
+        }
+    }
+
+    public static void ex2() {
+
+        String[] cars = {"Mazda", "Fiat", "Hyundai", "Mercedes"};
+        Arrays.sort(cars);
+        System.out.println(Arrays.toString(cars));
+    }
+
+    public static void ex1() {
+
+        int[] numbers = {6,12,3,6,4,2,1};
+        double sum=0;
+
+        for (Integer elements: numbers) {
+            sum = sum += elements;
+        }
+        System.out.println(sum/numbers.length);
+
+    }
+
+    public static int diagonalSum(final int[][] matrix) {
+
+        int sum = 0;
+
+        for (int i=0; i<matrix.length; i++) {
+            sum += matrix[i][i];
+        }
+
+            return sum;
+    }
+
+    public static long conjecture (long x) {
+
+        int counter=1;
+
+        while (x!=1) {
+            if (x%2==0) {
+                x=x/2;
+            } else if (x%2!=0) {
+                x=(x*3)+1;
+            }
+            counter++;
+        }
+        return counter;
+
+    }
+
+    public static String findScreenHeight(int width, String ratio) {
+
+        String[] elements = ratio.split(":");
+        double dividedRatio = Double.parseDouble(elements[1])/Double.parseDouble(elements[0]);
+        double height = dividedRatio*width;
+        int hheight = (int) height;
+        System.out.println(hheight);
+
+        return Double.toString(dividedRatio*width);
     }
 
     public static int signChange(int[] arr) {
@@ -164,7 +243,6 @@ public class Main {
 
         System.out.println(toFinish);
     }
-
 
     public static boolean solution(String str, String ending) {
 
