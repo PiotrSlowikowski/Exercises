@@ -142,12 +142,93 @@ public class Main {
 //       ex1();
 //       ex2();
 //       ex3();
+//        ex4();
+//        ex5();
+//        ex6();
+//        ex7();
+        ex8();
 
 
 
     }
 
-    
+    public static void ex8() {
+
+        int[] myFirstArray = { 12, 42, 34, 19 };
+        int[] mySecondArray = { 12, 42, 34, 19 };
+        int[] myThirdArray = { 12, 42, 33, 19 };
+
+        int counter=0;
+
+        for (int i=0; i<myFirstArray.length; i++) {
+            if (myFirstArray[i] == myThirdArray[i]) {
+                counter++;
+            }
+        }
+        if (counter == myFirstArray.length) {
+            System.out.println("Arrays are equal.");
+        } else {
+            System.out.println("Arrays are NOT equal.");
+        }
+
+    }
+
+    public static void ex7() {
+
+        String[] array = {"blue", "red", "white", "red", "black", "blue"};
+        String temp;
+
+        List<String> duplicates = new ArrayList<String>();
+
+        for (int i=0; i<array.length; i++) {
+            temp = array[i];
+            for (int j=0; j<array.length; j++) {
+                if (temp.equals(array[j]) && i!=j) {
+                    duplicates.add(array[j]);
+                }
+            }
+        }
+
+        System.out.println(duplicates);
+
+
+
+    }
+
+    public static void ex6() {
+
+        int[] array = new int[100];
+        Random random = new Random();
+
+        for (int i=0; i<array.length; i++) {
+
+            array[i] = random.nextInt(101);
+        }
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static void ex5() {
+
+        int[] array = {4,2,8,13,5,9,3};
+        int[] newArray = new int[array.length];
+
+        for (int i=0; i<array.length; i++) {
+            newArray[i] = array[i];
+        }
+        System.out.println(Arrays.toString(newArray));
+
+    }
+
+    public static void ex4() {
+
+        int[] array = {4,2,8,13,5,9,3};
+        Arrays.sort(array);
+        System.out.println("The second highest value is: "+ array[array.length-2]);
+
+
+
+    }
 
     public static void ex3() {
 
